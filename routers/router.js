@@ -1,14 +1,16 @@
 var express = require('express');
 var router = express.Router()
-var feedRouter = require('./categoryService')
-var hashtagRouter = require('./productService')
+var categoryRouter = require('./categoryService')
+var productRouter = require('./productService')
+var storeRouter = require('./storeService')
 
 router.use((req, res, next) => {
     console.log("Called: ", req.path)
     next()
 })
 
-router.use(feedRouter)
-router.use(hashtagRouter)
+router.use(categoryRouter)
+router.use(productRouter)
+router.use(storeRouter)
 
 module.exports = router
